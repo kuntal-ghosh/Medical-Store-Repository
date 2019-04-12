@@ -1,0 +1,62 @@
+if()
+{
+	
+	$sql1="select * from stock where `stock_id`='$id'";
+$re1=mysql_query($sql1);
+
+$row1=mysql_fetch_assoc($re1);
+
+$name=$row1['drug_name'];
+$qn=$qn;
+$cost=$row1['cost'];
+$total=$row1['cost']*$qn;
+
+	$sql2="INSERT INTO `bill`(`medicine_name`,`medicine_id`, `quantity`, `unit_price`, `total_price`,'selling_time') VALUES ('$name','$id','$qn','$cost','$total','now()')";
+	
+	$re2=mysql_query($sql2);
+	
+	$sql="SELECT DISTINCT `id`, `medicine_name`, `quantity`, `unit_price`, `total_price` FROM `bill`";
+	
+	$result=mysql_query($sql);
+	
+ $nrow=mysql_num_rows($result);
+if($nrow==1)
+{
+	?>
+<div id="table">
+	<table border="1px" width="70%">
+		<tr>
+		<th>medicine id</th>
+		<th>name</th>
+		<th>quantity</th>
+		<th>unit price</th>
+		<th>total price</th>
+		</tr>
+	<?php while($row=mysql_fetch_assoc($result))
+	{
+		?>	<tr>
+		<td><?php echo $id; ?></td>
+		<td><?php echo $row['medicine_name']; ?></td>
+		<td><?php echo $row['quantity']; ?></td>
+		<td><?php echo $row['unit_price']; ?></td>
+		<td><?php echo $row['total_price']; ?></td>
+		</tr>
+		<?php
+	 }
+		?>
+	</table>
+</div>	
+<?php
+}
+else
+{
+	echo '<br>'."Not in Store";
+	include("bill.php");
+	
+}
+}
+}
+else
+	header('location:bill.php');
+
+?>

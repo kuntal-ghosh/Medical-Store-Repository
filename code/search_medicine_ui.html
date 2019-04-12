@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+function  valid()
+{
+var n=document.getelementbyid("n");
+if(n.value=="")
+{
+return false;
+}
+return true;
+}
+</script>
+<title>search medicine ui</title>
+<style>
+#text
+{
+    height:30px;
+    font-size:14pt;
+}
+body{
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+
+<form id="form" action="search_medicine.php" method="POST" onsubmit="return valid()">
+<input type="text" id="n" name="search_name" placeholder="input medicine name" size="80" id="text">
+<input type="submit" name="submit" onclick="return valid()" value="search">
+</form>
+</body>
+</html>

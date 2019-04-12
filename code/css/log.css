@@ -1,0 +1,25 @@
+h1{
+	text-align:center;
+	font-size:50px;
+}
+body{
+	background-color:lightblue;
+}
+#f{
+
+background-color:aliceblue;
+	width:300px;
+	margin-top:15px;
+	margin-left:500px;
+	margin-right:auto;
+	margin-bottom:auto;
+	 padding: 0px 10px 20px 20px;
+	 
+    
+
+}
+
+#field{
+	font-size:18;
+	padding: 10px 0px 20px 20px;
+}
